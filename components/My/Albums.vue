@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyAlbum v-for="album in data" :key="album.albumId" :data="album" class="m-1 w-96" />
+    <MyAlbum v-for="album in albums" :key="album.albumId" :data="album" class="m-1 w-96" />
   </div>
 </template>
 
@@ -8,13 +8,7 @@
 import { useFetch } from 'nuxt/app';
 import type { AlbumWithRating } from '~/types/AlbumWithRating'
 
-
-const { data } = await useFetch<AlbumWithRating[]>('http://localhost:8080/albums', {})
-
-
-
-
-
+const { albums } = defineProps<{ albums: AlbumWithRating[] }>()
 
 
 </script>
